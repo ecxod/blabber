@@ -8,8 +8,9 @@ import eu.siacs.conversations.xmpp.Jid;
 
 public class BackupFileHeader {
 
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
 
+    private int version;
     private String app;
     private Jid jid;
     private long timestamp;
@@ -29,6 +30,11 @@ public class BackupFileHeader {
     }
 
     public BackupFileHeader(String app, Jid jid, long timestamp, byte[] iv, byte[] salt) {
+        this(VERSION, app, jid, timestamp, iv, salt);
+    }
+
+    private BackupFileHeader(int version, String app, Jid jid, long timestamp, byte[] iv, byte[] salt) {
+        this.version = version;
         this.app = app;
         this.jid = jid;
         this.timestamp = timestamp;
@@ -37,7 +43,7 @@ public class BackupFileHeader {
     }
 
     public void write(DataOutputStream dataOutputStream) throws IOException {
-        dataOutputStream.writeInt(VERSION);
+        dataOutputStream.writeInt(version);
         dataOutputStream.writeUTF(app);
         dataOutputStream.writeUTF(jid.asBareJid().toEscapedString());
         dataOutputStream.writeLong(timestamp);
@@ -58,12 +64,16 @@ public class BackupFileHeader {
         byte[] salt = new byte[16];
         inputStream.readFully(salt);
 
-        return new BackupFileHeader(app, Jid.of(jid), timestamp, iv, salt);
+        return new BackupFileHeader(version, app, Jid.of(jid), timestamp, iv, salt);
 
     }
 
     public byte[] getSalt() {
         return salt;
+    }
+
+    public int getVersion() {
+        return version;
     }
 
     public byte[] getIv() {

@@ -549,12 +549,12 @@ public class Message extends AbstractEntity implements AvatarService.Avatarable 
     public boolean addReadByMarker(ReadByMarker readByMarker) {
         if (readByMarker.getRealJid() != null) {
             if (readByMarker.getRealJid().asBareJid().equals(trueCounterpart)) {
-                Log.d(Config.LOGTAG, "trying to add read marker by " + readByMarker.getRealJid() + " to " + body);
+                Log.d(Config.LOGTAG, "trying to add read marker by " + readByMarker.getRealJid());
                 return false;
             }
         } else if (readByMarker.getFullJid() != null) {
             if (readByMarker.getFullJid().equals(counterpart)) {
-                Log.d(Config.LOGTAG, "trying to add read marker by " + readByMarker.getFullJid() + " to " + body);
+                Log.d(Config.LOGTAG, "trying to add read marker by " + readByMarker.getFullJid());
                 return false;
             }
         }
@@ -956,7 +956,7 @@ public class Message extends AbstractEntity implements AvatarService.Avatarable 
                     break;
 
             }
-            Log.d(Config.LOGTAG, "FileParams: " + body);
+            Log.d(Config.LOGTAG, "parsing file parameters");
         }
         return fileParams;
     }

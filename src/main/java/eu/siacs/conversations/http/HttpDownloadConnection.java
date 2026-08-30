@@ -123,7 +123,7 @@ public class HttpDownloadConnection implements Transferable {
             } else {
                 knownFileSize = message.getFileParams().size;
             }
-            Log.d(Config.LOGTAG, "knownFileSize: " + knownFileSize + ", body=" + message.getBody());
+            Log.d(Config.LOGTAG, "knownFileSize: " + knownFileSize);
             if (knownFileSize != null && interactive) {
                 if (message.getEncryption() == Message.ENCRYPTION_AXOLOTL
                         && this.file.getKey() != null) {

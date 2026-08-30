@@ -167,14 +167,24 @@ public class ExportBackupService extends Service {
         }
     }
 
-    public static byte[] getKey(final String password, final byte[] salt) throws InvalidKeySpecException {
+    private static final int LEGACY_KDF_ITERATIONS = 1024;
+    private static final int CURRENT_KDF_ITERATIONS = 120_000;
+
+    public static byte[] getKey(
+            final String password,
+            final byte[] salt,
+            final int backupVersion) throws InvalidKeySpecException {
         final SecretKeyFactory factory;
         try {
             factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalStateException(e);
         }
-        return factory.generateSecret(new PBEKeySpec(password.toCharArray(), salt, 1024, 128)).getEncoded();
+        final int iterations = backupVersion >= 2
+                ? CURRENT_KDF_ITERATIONS
+                : LEGACY_KDF_ITERATIONS;
+        return factory.generateSecret(
+                new PBEKeySpec(password.toCharArray(), salt, iterations, 128)).getEncoded();
     }
 
     private static String cursorToString(final String table, final Cursor cursor, final int max) {
@@ -389,7 +399,7 @@ public class ExportBackupService extends Service {
                 dataOutputStream.flush();
 
                 final Cipher cipher = Compatibility.runsTwentyEight() ? Cipher.getInstance(CIPHERMODE) : Cipher.getInstance(CIPHERMODE, PROVIDER);
-                final byte[] key = getKey(password, salt);
+                final byte[] key = getKey(password, salt, backupFileHeader.getVersion());
                 Log.d(Config.LOGTAG, backupFileHeader.toString());
                 SecretKeySpec keySpec = new SecretKeySpec(key, KEYTYPE);
                 IvParameterSpec ivSpec = new IvParameterSpec(IV);

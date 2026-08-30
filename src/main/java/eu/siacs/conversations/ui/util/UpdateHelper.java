@@ -219,7 +219,7 @@ public class UpdateHelper {
         Date updateDate = null;
         Date lastUpdateDate = null;
         try {
-            packageInfo = pm.getPackageInfo(activity.getPackageName(), PackageManager.GET_SIGNATURES);
+            packageInfo = pm.getPackageInfo(activity.getPackageName(), 0);
             firstInstalled = DATE_FORMAT.format(new Date(packageInfo.firstInstallTime));
             lastUpdate = DATE_FORMAT.format(new Date(packageInfo.lastUpdateTime));
         } catch (PackageManager.NameNotFoundException e) {
@@ -263,7 +263,7 @@ public class UpdateHelper {
         Date installDate = null;
         Date firstInstalledDate = null;
         try {
-            packageInfo = pm.getPackageInfo(activity.getPackageName(), PackageManager.GET_SIGNATURES);
+            packageInfo = pm.getPackageInfo(activity.getPackageName(), 0);
             firstInstalled = DATE_FORMAT.format(new Date(packageInfo.firstInstallTime));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -66,8 +65,9 @@
 
     <application
         android:name=".BlabberApplication"
-        android:allowBackup="true"
-        android:fullBackupContent="@xml/backup_content"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
         android:appCategory="social"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -93,7 +93,7 @@
         <service android:name=".services.XmppConnectionService" />
 
         <receiver android:name=".services.EventReceiver"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -388,12 +388,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.SettingsActivity" />
         </activity>
-        <activity
-            android:name=".ui.UpdaterActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_updater"
-            android:launchMode="singleTask"
-            android:theme="@style/ConversationsTheme" />
         <activity
             android:name=".ui.ShortcutActivity"
             android:label="@string/contact"

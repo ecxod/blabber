@@ -451,8 +451,7 @@ public class WebRTCWrapper {
                 @Override
                 public void onSetSuccess() {
                     final SessionDescription description = peerConnection.getLocalDescription();
-                    Log.d(EXTENDED_LOGGING_TAG, "set local description:");
-                    logDescription(description);
+                    Log.d(EXTENDED_LOGGING_TAG, "set local description");
                     future.set(description);
                 }
 
@@ -465,15 +464,8 @@ public class WebRTCWrapper {
         }, MoreExecutors.directExecutor());
     }
 
-    private static void logDescription(final SessionDescription sessionDescription) {
-        for (final String line : sessionDescription.description.split(eu.siacs.conversations.xmpp.jingle.SessionDescription.LINE_DIVIDER)) {
-            Log.d(EXTENDED_LOGGING_TAG, line);
-        }
-    }
-
     synchronized ListenableFuture<Void> setRemoteDescription(final SessionDescription sessionDescription) {
-        Log.d(EXTENDED_LOGGING_TAG, "setting remote description:");
-        logDescription(sessionDescription);
+        Log.d(EXTENDED_LOGGING_TAG, "setting remote description");
         return Futures.transformAsync(getPeerConnectionFuture(), peerConnection -> {
             final SettableFuture<Void> future = SettableFuture.create();
             peerConnection.setRemoteDescription(new SetSdpObserver() {

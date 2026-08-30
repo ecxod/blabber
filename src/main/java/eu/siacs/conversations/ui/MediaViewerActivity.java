@@ -424,7 +424,10 @@ public class MediaViewerActivity extends XmppActivity implements AudioManager.On
 
     @Override
     public void onBackPressed() {
-        if (isVideo && isPlaying() && supportsPIP()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+                && isVideo
+                && isPlaying()
+                && supportsPIP()) {
             PIPVideo();
         } else {
             super.onBackPressed();

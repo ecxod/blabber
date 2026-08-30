@@ -212,7 +212,7 @@ public class XmppConnectionService extends Service {
     public static final String ACTION_DISMISS_CALL = "dismiss_call";
     public static final String ACTION_END_CALL = "end_call";
     public static final String ACTION_PROVISION_ACCOUNT = "provision_account";
-    private static final String ACTION_POST_CONNECTIVITY_CHANGE = "eu.siacs.conversations.POST_CONNECTIVITY_CHANGE";
+    static final String ACTION_POST_CONNECTIVITY_CHANGE = "eu.siacs.conversations.POST_CONNECTIVITY_CHANGE";
     public static final String FDroid = "org.fdroid.fdroid";
     public static final String PlayStore = "com.android.vending";
     private static final String SETTING_LAST_ACTIVITY_TS = "last_activity_timestamp";
@@ -1688,16 +1688,8 @@ public class XmppConnectionService extends Service {
         final Intent intent = new Intent(this, EventReceiver.class);
         intent.setAction("ping");
         try {
-            final PendingIntent pendingIntent;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                pendingIntent =
-                        PendingIntent.getBroadcast(
-                                this, requestCode, intent, PendingIntent.FLAG_IMMUTABLE);
-            } else {
-                pendingIntent =
-                        PendingIntent.getBroadcast(
-                                this, requestCode, intent, 0);
-            }
+            final PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                    this, requestCode, intent, PendingIntent.FLAG_IMMUTABLE);
             alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, timeToWake, pendingIntent);
         } catch (RuntimeException e) {
             Log.e(Config.LOGTAG, "unable to schedule alarm for ping", e);
@@ -5327,7 +5319,12 @@ public class XmppConnectionService extends Service {
                         timetoexport.add(Calendar.DAY_OF_YEAR, 1); //DATE or DAY_OF_MONTH
                         Log.d(Config.LOGTAG, "Schedule automatic export logs, for today, the export time is in the past, scheduling first export run for the next day (" + newDate.format(timetoexport.getTimeInMillis()) + ").");
                     }
-                    final PendingIntent ScheduleExportIntent = PendingIntent.getBroadcast(this, AlarmReceiver.SCHEDULE_ALARM_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    final PendingIntent ScheduleExportIntent = PendingIntent.getBroadcast(
+                            this,
+                            AlarmReceiver.SCHEDULE_ALARM_REQUEST_CODE,
+                            intent,
+                            s() ? PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
+                                    : PendingIntent.FLAG_UPDATE_CURRENT);
                     ((AlarmManager) getSystemService(ALARM_SERVICE)).setInexactRepeating(AlarmManager.RTC_WAKEUP, timetoexport.getTimeInMillis(), AlarmManager.INTERVAL_DAY, ScheduleExportIntent);
                 } catch (Exception e) {
                     e.printStackTrace();

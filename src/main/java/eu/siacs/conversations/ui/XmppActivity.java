@@ -38,7 +38,6 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.text.Html;
 import android.text.InputType;
 import android.util.DisplayMetrics;
@@ -113,7 +112,6 @@ public abstract class XmppActivity extends ActionBarActivity {
     protected static final int REQUEST_INVITE_TO_CONVERSATION = 0x0102;
     protected static final int REQUEST_CHOOSE_PGP_ID = 0x0103;
     protected static final int REQUEST_BATTERY_OP = 0x49ff;
-    protected static final int REQUEST_UNKNOWN_SOURCE_OP = 0x98ff;
 
     public static final String EXTRA_ACCOUNT = "account";
 
@@ -1391,81 +1389,9 @@ public abstract class XmppActivity extends ActionBarActivity {
         return null;
     }
 
-    protected boolean installFromUnknownSourceAllowed() {
-        boolean installFromUnknownSource = false;
-        final PackageManager packageManager = this.getPackageManager();
-        int isUnknownAllowed = 0;
-        if (Build.VERSION.SDK_INT >= 26) {
-            /*
-             * On Android 8 with applications targeting lower versions,
-             * it's impossible to check unknown sources enabled: using old APIs will always return true
-             * and using the new one will always return false,
-             * so in order to avoid a stuck dialog that can't be bypassed we will assume true.
-             */
-            installFromUnknownSource = this.getApplicationInfo().targetSdkVersion < Build.VERSION_CODES.O
-                    || packageManager.canRequestPackageInstalls();
-        } else if (Build.VERSION.SDK_INT >= 17 && Build.VERSION.SDK_INT < 26) {
-            try {
-                isUnknownAllowed = Settings.Global.getInt(this.getApplicationContext().getContentResolver(), Settings.Global.INSTALL_NON_MARKET_APPS);
-            } catch (Settings.SettingNotFoundException e) {
-                isUnknownAllowed = 0;
-                e.printStackTrace();
-            }
-            installFromUnknownSource = isUnknownAllowed == 1;
-        } else {
-            try {
-                isUnknownAllowed = Settings.Secure.getInt(this.getApplicationContext().getContentResolver(), Settings.Secure.INSTALL_NON_MARKET_APPS);
-            } catch (Settings.SettingNotFoundException e) {
-                isUnknownAllowed = 0;
-                e.printStackTrace();
-            }
-            installFromUnknownSource = isUnknownAllowed == 1;
-        }
-        Log.d(Config.LOGTAG, "Install from unknown sources for Android SDK " + Build.VERSION.SDK_INT + " allowed: " + installFromUnknownSource);
-        return installFromUnknownSource;
-    }
-
     protected void openInstallFromUnknownSourcesDialogIfNeeded(boolean interactive) {
-        // Interactive = true --> show toast or dialog
-        final String beInteractive = interactive ? "true" : "false";
-        if (!installFromUnknownSourceAllowed()) {
-            if (xmppConnectionService.installedFrom() == null) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.install_from_unknown_sources_disabled);
-                builder.setMessage(R.string.install_from_unknown_sources_disabled_dialog);
-                builder.setPositiveButton(R.string.next, (dialog, which) -> {
-                    final Intent intent;
-                    if (android.os.Build.VERSION.SDK_INT >= 26) {
-                        intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
-                        Uri uri = Uri.parse("package:" + getPackageName());
-                        intent.setData(uri);
-                    } else {
-                        intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
-                    }
-                    Log.d(Config.LOGTAG, "Allow install from unknown sources for Android SDK " + Build.VERSION.SDK_INT + " intent " + intent.toString());
-                    try {
-                        startActivityForResult(intent, REQUEST_UNKNOWN_SOURCE_OP);
-                    } catch (ActivityNotFoundException e) {
-                        ToastCompat.makeText(XmppActivity.this, R.string.device_does_not_support_unknown_source_op, ToastCompat.LENGTH_SHORT).show();
-                    } finally {
-                        final UpdateService task = new UpdateService(this, xmppConnectionService.installedFrom(), xmppConnectionService);
-                        task.executeOnExecutor(UpdateService.THREAD_POOL_EXECUTOR, beInteractive);
-                        Log.d(Config.LOGTAG, "AppUpdater started");
-                    }
-                });
-                builder.create().show();
-            } else {
-                Log.d(Config.LOGTAG, "AppUpdater disabled");
-            }
-        } else {
-            if (xmppConnectionService.installedFrom() == null) {
-                final UpdateService task = new UpdateService(this, xmppConnectionService.installedFrom(), xmppConnectionService);
-                task.executeOnExecutor(UpdateService.THREAD_POOL_EXECUTOR, beInteractive);
-                Log.d(Config.LOGTAG, "AppUpdater started");
-            } else {
-                Log.d(Config.LOGTAG, "AppUpdater disabled");
-            }
-        }
+        final UpdateService task = new UpdateService(this, xmppConnectionService);
+        task.executeOnExecutor(UpdateService.THREAD_POOL_EXECUTOR, Boolean.toString(interactive));
     }
 
     public void ShowAvatarPopup(final Activity activity, final AvatarService.Avatarable user) {

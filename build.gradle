@@ -65,7 +65,7 @@ dependencies {
     implementation 'org.whispersystems:signal-protocol-java:2.6.2'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'jetty:javax.servlet:5.1.12'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -92,7 +92,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.google.guava:guava:31.1-android'
+    implementation 'com.google.guava:guava:32.0.0-android'
     implementation 'com.github.AppIntro:AppIntro:6.2.0'
     implementation 'androidx.browser:browser:1.4.0'
     implementation 'io.sentry:sentry-android-core:8.38.0'
@@ -127,7 +127,7 @@ android {
         buildConfigField("String", "LOGTAG", '"blabber.im"')
         buildConfigField("String", "DOMAIN_LOCK", 'null')
         buildConfigField("boolean", "SHOW_INTRO", 'true')
-        buildConfigField("String", "UPDATE_URL", '"https://blabber.im/update/"')
+        buildConfigField("String", "UPDATE_URL", '"https://api.github.com/repos/ecxod/blabber/releases/latest"')
         resValue "string", "applicationId", applicationId
         resValue "string", "app_name", "Blabber"
     }

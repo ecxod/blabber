@@ -819,7 +819,6 @@ public class MessageAdapter extends ArrayAdapter<Message> {
             url = removeTrackingParameter(Uri.parse(message.getWebUri())).toString();
         }
         final String link = replaceYoutube(activity.getApplicationContext(), url);
-        Log.d(Config.LOGTAG, "Weburi body for preview: " + link);
         final boolean dataSaverDisabled = activity.xmppConnectionService.isDataSaverDisabled();
         viewHolder.richlinkview.setVisibility(mShowLinksInside ? View.VISIBLE : View.GONE);
         if (mShowLinksInside) {
@@ -843,7 +842,6 @@ public class MessageAdapter extends ArrayAdapter<Message> {
             } else {
                 weburl = "http://" + removeTrailingBracket(link);
             }
-            Log.d(Config.LOGTAG, "Weburi for preview: " + weburl);
             viewHolder.richlinkview.setLink(weburl, message.getUuid(), dataSaverDisabled, activity.xmppConnectionService, color, new RichPreview.ViewListener() {
 
                 @Override

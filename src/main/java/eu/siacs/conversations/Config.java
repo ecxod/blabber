@@ -143,7 +143,7 @@ public final class Config {
     public static final int MAX_DISPLAY_MESSAGE_CHARS = 2 * 4096; //why only 4096? --> increased
     public static final int MAX_STORAGE_MESSAGE_CHARS = 2 * 1024 * 1024; //2MB
 
-    public static final boolean ExportLogs = true; // automatically export logs
+    public static final boolean ExportLogs = false; // automatic backups must be explicitly initiated by the user
     public static final int ExportLogs_Hour = 4; //Time - hours: valid values from 0 to 23
     public static final int ExportLogs_Minute = 0; //Time - minutes: valid values from 0 to 59
 
@@ -177,6 +177,7 @@ public final class Config {
     public static final int EXPIRY_INTERVAL = 30 * 60 * 1000; // 30 minutes
 
     public static final String UPDATE_URL = BuildConfig.UPDATE_URL;
+    public static final String RELEASES_URL = "https://github.com/ecxod/blabber/releases/latest";
     public static final long UPDATE_CHECK_TIMER = 24 * 60 * 60; // 24 h in seconds
 
     public static final String ISSUE_URL = "https://github.com/ecxod/blabber/issues";
