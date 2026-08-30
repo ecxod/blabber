@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- contents
+    1. blue
+    2. blabber
+    3. orange
+    4. grey
+    5. pink
+    -->
+
+    <!-- fullscreen -->
+    <style name="ConversationsTheme.FullScreen" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:navigationBarColor" tools:targetApi="21">@color/black</item>
+    </style>
+
+    <!-- splash theme -->
+    <style name="SplashTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
+
+    <!-- 1. blue -->
+    <!-- blue theme -->
+    <style name="ConversationsTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorAccentLight">@color/accent_light</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled</item>
+        <item name="popupOverlayStyle">@style/ThemeOverlay.MaterialComponents.Light</item>
+        <item name="colorControlNormal">@color/accent</item>
+        <item name="colorControlActivated">@color/accent</item>
+        <item name="text_Color_Main">@color/realblack</item>
+        <item name="colorOnPrimary">@color/realblack</item>
+        <item name="button_text_color_disabled">@color/grey500</item>
+        <item name="chat_bg">@drawable/bg_light_blue</item>
+        <item name="icon_tint">@color/black54</item>
+        <item name="color_background_primary">@color/grey50</item>
+        <item name="color_background_secondary">@color/grey200</item>
+        <item name="color_background_tertiary">@color/grey300</item>
+        <item name="color_background_overlay">@color/grey300_40</item>
+        <item name="color_warning">@color/red700</item>
+        <item name="color_warning_button_text">@color/warning_button_dark</item>
+        <item name="TextColorOnline">@color/green500</item>
+        <item name="TextColorError">@color/red800</item>
+        <item name="edit_text_color">@color/black87</item>
+        <item name="activity_background_search">@drawable/search_background_light</item>
+        <item name="activity_background_no_results">@drawable/no_results_background_light</item>
+        <item name="list_item_background">@drawable/list_item_background_light</item>
+        <item name="EmojiColor">@color/realblack</item>
+        <item name="color_bubble_light">@color/lightwhite</item>
+        <item name="color_bubble_dark">@color/lightblue</item>
+        <item name="color_bubble_date">@color/lightgreen</item>
+        <item name="color_bubble_warning">@color/lightred</item>
+        <item name="color_border">@color/grey500</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:actionModeBackground">@color/accent</item>
+        <item name="android:homeAsUpIndicator" type="reference">@drawable/ic_arrow_back_white_24dp
+        </item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.Conversations.Button.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.Conversations.Button.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.Conversations.Button.Dialog</item>
+
+        <item name="TextSizeCaption">12sp</item>
+        <item name="TextSizeBody1">14sp</item>
+        <item name="TextSizeBody2">14sp</item>
+        <item name="TextSizeSubhead">16sp</item>
+        <item name="TextSizeTitle">20sp</item>
+        <item name="TextSizeInput">16sp</item>
+        <item name="TextSeparation">5sp</item>
+        <item name="IconSize">18sp</item>
+        <item name="TextSizeInfo">12sp</item>
+        <item name="TextSizeBody">14sp</item>
+        <item name="TextSizeHeadline">18sp</item>
+        <!--<item type="reference" name="infocard_border">@drawable/infocard_border</item>-->
+        <item name="divider">@color/black12</item>
+
+        <item name="ic_send_cancel_offline" type="reference">@drawable/ic_send_cancel_offline</item>
+        <item name="ic_send_photo_offline" type="reference">@drawable/ic_send_photo_offline</item>
+        <item name="ic_send_picture_offline" type="reference">@drawable/ic_send_picture_offline
+        </item>
+        <item name="ic_send_text_offline" type="reference">@drawable/ic_send_text_offline</item>
+        <item name="ic_send_attachment_offline" type="reference">
+            @drawable/ic_send_attachment_offline
+        </item>
+        <item name="ic_send_videocam_offline" type="reference">@drawable/ic_send_videocam_offline
+        </item>
+        <item name="ic_send_voice_offline" type="reference">@drawable/ic_send_voice_offline</item>
+        <item name="media_preview_document" type="reference">@drawable/ic_description_black_48dp
+        </item>
+        <item name="media_preview_recording" type="reference">@drawable/ic_mic_black_48dp</item>
+        <item name="media_preview_audio" type="reference">@drawable/ic_headset_black_48dp</item>
+        <item name="media_preview_tour" type="reference">@drawable/baseline_tour_black_48</item>
+        <item name="media_preview_contact" type="reference">@drawable/ic_person_black_48dp</item>
+        <item name="media_preview_app" type="reference">@drawable/ic_android_black_48dp</item>
+        <item name="media_preview_calendar" type="reference">@drawable/ic_event_black_48dp</item>
+        <item name="media_preview_archive" type="reference">@drawable/ic_archive_black_48dp</item>
+        <item name="media_preview_ebook" type="reference">@drawable/ic_book_black_48dp</item>
+        <item name="media_preview_unknown" type="reference">@drawable/ic_help_black_48dp</item>
+        <item name="media_preview_backup" type="reference">@drawable/ic_backup_black_48dp</item>
+        <item name="icon_add_group" type="reference">@drawable/ic_group_add_white_24dp</item>
+        <item name="icon_add_person" type="reference">@drawable/ic_person_add_white_24dp</item>
+        <item name="icon_cancel" type="reference">@drawable/ic_cancel_black_24dp</item>
+        <item name="icon_chat" type="reference">@drawable/ic_action_chat</item>
+        <item name="icon_copy" type="reference">@drawable/ic_content_copy_grey600_24dp</item>
+        <item name="icon_action_copy" type="reference">@drawable/ic_content_copy_white_24dp</item>
+        <item name="icon_navigate" type="reference">@drawable/ic_navigation_white_24dp</item>
+        <item name="icon_show_qr_code" type="reference">@drawable/ic_qrcode_grey600_24dp</item>
+        <item name="icon_discard" type="reference">@drawable/ic_delete_white_24dp</item>
+        <item name="icon_download" type="reference">@drawable/ic_file_download_white_24dp</item>
+        <item name="icon_edit" type="reference">@drawable/ic_edit_white_24dp</item>
+        <item name="icon_edit_body" type="reference">@drawable/ic_edit_black_24dp</item>
+        <item name="icon_save" type="reference">@drawable/ic_save_black_24dp</item>
+        <item name="icon_done" type="reference">@drawable/ic_done_black_24dp</item>
+        <item name="icon_group" type="reference">@drawable/ic_group_white_24dp</item>
+        <item name="icon_new" type="reference">@drawable/ic_contacts_white_24dp</item>
+        <item name="icon_new_attachment" type="reference">@drawable/ic_attach_file_white_24dp</item>
+        <item name="icon_not_secure" type="reference">@drawable/ic_lock_open_white_24dp</item>
+        <item name="ic_make_audio_call" type="reference">@drawable/ic_call_black54_24dp</item>
+        <item name="ic_make_video_call" type="reference">@drawable/ic_videocam_black54_24dp</item>
+        <item name="icon_call" type="reference">@drawable/ic_call_white_24dp</item>
+        <item name="icon_ongoing_call" type="reference">@drawable/ic_phone_in_talk_white_24dp</item>
+        <item name="ic_ongoing_call_hint" type="reference">@drawable/ic_phone_in_talk_black_18dp
+        </item>
+        <item name="icon_quote" type="reference">@drawable/ic_reply_white_24dp</item>
+        <item name="icon_refresh" type="reference">@drawable/ic_refresh_grey600_24dp</item>
+        <item name="icon_remove" type="reference">@drawable/ic_delete_grey600_24dp</item>
+        <item name="icon_search" type="reference">@drawable/ic_search_white_24dp</item>
+        <item name="icon_help" type="reference">@drawable/ic_help_white_24dp</item>
+        <item name="icon_help_black" type="reference">@drawable/ic_help_black_24dp</item>
+        <item name="icon_goto_chat" type="reference">@drawable/ic_question_answer_white_24dp</item>
+        <item name="icon_secure" type="reference">@drawable/ic_lock_open_white_24dp</item>
+        <item name="icon_settings" type="reference">@drawable/ic_settings_black_24dp</item>
+        <item name="icon_delete" type="reference">@drawable/ic_delete_black_24dp</item>
+        <item name="icon_share" type="reference">@drawable/ic_share_black_24dp</item>
+        <item name="icon_action_share" type="reference">@drawable/ic_share_white_24dp</item>
+        <item name="ic_cloud_download" type="reference">@drawable/ic_cloud_download_white_24dp
+        </item>
+        <item name="icon_scan_qr_code" type="reference">@drawable/ic_qrcode_scan_white_24dp</item>
+        <item name="icon_scroll_down" type="reference">@drawable/ic_scroll_to_end_black</item>
+
+        <!-- settings-->
+        <item name="ic_settings_ui" type="reference">@drawable/ic_image_black_24dp</item>
+        <item name="ic_settings_notifications" type="reference">
+            @drawable/ic_notifications_black_24dp
+        </item>
+        <item name="ic_settings_attachments" type="reference">@drawable/ic_attachment_black_24dp
+        </item>
+        <item name="ic_settings_status" type="reference">@drawable/ic_new_releases_black_24dp</item>
+        <item name="ic_settings_security" type="reference">@drawable/ic_security_black_24dp</item>
+        <item name="ic_settings_expert" type="reference">@drawable/ic_settings_black_24dp</item>
+
+        <item name="dialog_horizontal_padding">16dp</item>
+        <item name="dialog_vertical_padding">16dp</item>
+        <item name="icon_alpha" type="float">0.54</item>
+        <item name="delete_icon_alpha" type="float">0.70</item>
+
+        <item name="ic_attach_camera" type="reference">@drawable/ic_attach_camera</item>
+        <item name="ic_attach_videocam" type="reference">@drawable/ic_attach_videocam</item>
+        <item name="ic_attach_document" type="reference">@drawable/ic_attach_document</item>
+        <item name="ic_attach_photo" type="reference">@drawable/ic_attach_photo</item>
+        <item name="ic_attach_video" type="reference">@drawable/ic_attach_video</item>
+        <item name="ic_attach_record" type="reference">@drawable/ic_attach_record</item>
+
+        <item name="conversations_overview_background">@color/primary</item>
+
+        <item name="ic_file_apk" type="reference">@drawable/ic_file_grey600_48dp</item>
+        <item name="ic_file_pdf" type="reference">@drawable/ic_file_pdf_grey600_48dp</item>
+        <item name="ic_file_vcard" type="reference">@drawable/ic_account_card_details_grey600_48dp
+        </item>
+        <item name="ic_file_calendar" type="reference">@drawable/ic_calendar_grey600_48dp</item>
+
+        <item name="ic_bold" type="reference">@drawable/ic_format_bold_black</item>
+        <item name="ic_italic" type="reference">@drawable/ic_format_italic_black</item>
+        <item name="ic_monospace" type="reference">@drawable/ic_format_monospace_black</item>
+        <item name="ic_strikethrough" type="reference">@drawable/ic_format_strikethrough_black</item>
+        <item name="ic_help" type="reference">@drawable/ic_help_black</item>
+        <item name="ic_close" type="reference">@drawable/ic_close_black</item>
+
+        <item name="icon_notifications" type="reference">@drawable/ic_notifications_black_24dp
+        </item>
+        <item name="icon_notifications_off" type="reference">
+            @drawable/ic_notifications_off_black_24dp
+        </item>
+        <item name="icon_notifications_paused" type="reference">
+            @drawable/ic_notifications_paused_black_24dp
+        </item>
+        <item name="icon_notifications_none" type="reference">
+            @drawable/ic_notifications_none_black_24dp
+        </item>
+        <item name="icon_enable_undecided_device" type="reference">
+            @drawable/ic_new_releases_black_24dp
+        </item>
+        <item name="icon_pinned_on_top" type="reference">@drawable/ic_star_black_24dp</item>
+        <item name="ic_settings_about" type="reference">@drawable/ic_help_black_24dp</item>
+    </style>
+
+    <!-- blue theme - dark -->
+    <style name="ConversationsTheme.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorAccentLight">@color/accent_light</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled</item>
+        <item name="popupOverlayStyle">@style/ThemeOverlay.MaterialComponents.Dark</item>
+        <item name="colorControlNormal">@color/accent</item>
+        <item name="colorControlActivated">@color/accent</item>
+        <item name="text_Color_Main">@color/realwhite</item>
+        <item name="colorOnPrimary">@color/realwhite</item>
+        <item name="button_text_color_disabled">@color/grey500</item>
+        <item name="android:navigationBarColor" tools:targetApi="21">@color/black</item>
+        <item name="chat_bg">@drawable/bg_dark_blue</item>
+        <item name="icon_tint">@color/realwhite</item>
+        <item name="color_background_primary">@color/grey700</item>
+        <item name="color_background_secondary">@color/grey800</item>
+        <item name="color_background_tertiary">@color/grey900</item>
+        <item name="color_background_overlay">@color/grey900_40</item>
+        <item name="color_warning">@color/red700</item>
+        <item name="color_warning_button_text">@color/warning_button</item>
+        <item name="TextColorOnline">@color/green500</item>
+        <item name="TextColorError">@color/red500</item>
+        <item name="edit_text_color">@color/white</item>
+        <item name="activity_background_search">@drawable/search_background_dark</item>
+        <item name="activity_background_no_results">@drawable/no_results_background_dark</item>
+        <item name="list_item_background">@drawable/list_item_background_dark</item>
+        <item name="EmojiColor">@color/realwhite</item>
+        <item name="color_bubble_light">@color/darkwhite</item>
+        <item name="color_bubble_dark">@color/darkblue</item>
+        <item name="color_bubble_date">@color/darkgreen</item>
+        <item name="color_bubble_warning">@color/darkred</item>
+        <item name="color_border">@color/grey700</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:actionModeBackground">@color/accent</item>
+        <item name="android:homeAsUpIndicator" type="reference">@drawable/ic_arrow_back_white_24dp
+        </item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.Conversations.Button.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.Conversations.Button.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.Conversations.Button.Dialog</item>
+
+        <item name="TextSizeCaption">12sp</item>
+        <item name="TextSizeBody1">14sp</item>
+        <item name="TextSizeBody2">14sp</item>
+        <item name="TextSizeSubhead">16sp</item>
+        <item name="TextSizeTitle">20sp</item>
+        <item name="TextSizeInput">16sp</item>
+        <item name="TextSeparation">5sp</item>
+        <item name="IconSize">18sp</item>
+        <item name="TextSizeInfo">12sp</item>
+        <item name="TextSizeBody">14sp</item>
+        <item name="TextSizeHeadline">18sp</item>
+
+        <item name="divider">@color/white12</item>
+
+        <item name="ic_send_cancel_offline" type="reference">
+            @drawable/ic_send_cancel_offline_white
+        </item>
+        <item name="ic_send_photo_offline" type="reference">@drawable/ic_send_photo_offline_white
+        </item>
+        <item name="ic_send_picture_offline" type="reference">
+            @drawable/ic_send_picture_offline_white
+        </item>
+        <item name="ic_send_text_offline" type="reference">@drawable/ic_send_text_offline_white
+        </item>
+        <item name="ic_send_attachment_offline" type="reference">
+            @drawable/ic_send_attachment_offline_white
+        </item>
+        <item name="ic_send_videocam_offline" type="reference">
+            @drawable/ic_send_videocam_offline_white
+        </item>
+        <item name="ic_send_voice_offline" type="reference">@drawable/ic_send_voice_offline_white
+        </item>
+
+        <item name="ic_attach_camera" type="reference">@drawable/ic_attach_camera_white</item>
+        <item name="ic_attach_videocam" type="reference">@drawable/ic_attach_videocam_white</item>
+        <item name="ic_attach_video" type="reference">@drawable/ic_attach_videocam_white</item>
+        <item name="ic_attach_document" type="reference">@drawable/ic_attach_document_white</item>
+        <item name="ic_attach_photo" type="reference">@drawable/ic_attach_photo_white</item>
+        <item name="ic_attach_record" type="reference">@drawable/ic_attach_record_white</item>
+
+        <item name="conversations_overview_background">@color/primary_dark</item>
+
+        <item name="icon_alpha" type="float">0.7</item>
+        <item name="delete_icon_alpha" type="float">0.7</item>
+
+        <item name="dialog_horizontal_padding">24dp</item>
+        <item name="dialog_vertical_padding">16dp</item>
+
+        <item name="media_preview_document" type="reference">@drawable/ic_description_white_48dp
+        </item>
+        <item name="media_preview_recording" type="reference">@drawable/ic_mic_white_48dp</item>
+        <item name="media_preview_audio" type="reference">@drawable/ic_headset_white_48dp</item>
+        <item name="media_preview_tour" type="reference">@drawable/baseline_tour_white_48</item>
+        <item name="media_preview_contact" type="reference">@drawable/ic_person_white_48dp</item>
+        <item name="media_preview_app" type="reference">@drawable/ic_android_white_48dp</item>
+        <item name="media_preview_calendar" type="reference">@drawable/ic_event_white_48dp</item>
+        <item name="media_preview_archive" type="reference">@drawable/ic_archive_white_48dp</item>
+        <item name="media_preview_ebook" type="reference">@drawable/ic_book_white_48dp</item>
+        <item name="media_preview_unknown" type="reference">@drawable/ic_help_white_48dp</item>
+        <item name="media_preview_backup" type="reference">@drawable/ic_backup_white_48dp</item>
+        <item name="icon_add_group" type="reference">@drawable/ic_group_add_white_24dp</item>
+        <item name="icon_add_person" type="reference">@drawable/ic_person_add_white_24dp</item>
+        <item name="icon_cancel" type="reference">@drawable/ic_cancel_white_24dp</item>
+        <item name="icon_copy" type="reference">@drawable/ic_content_copy_white_24dp</item>
+        <item name="icon_action_copy" type="reference">@drawable/ic_content_copy_white_24dp</item>
+        <item name="icon_navigate" type="reference">@drawable/ic_navigation_white_24dp</item>
+        <item name="icon_show_qr_code" type="reference">@drawable/ic_qrcode_white_24dp</item>
+        <item name="icon_discard" type="reference">@drawable/ic_delete_white_24dp</item>
+        <item name="icon_download" type="reference">@drawable/ic_file_download_white_24dp</item>
+        <item name="icon_edit" type="reference">@drawable/ic_edit_white_24dp</item>
+        <item name="icon_edit_body" type="reference">@drawable/ic_edit_white_24dp</item>
+        <item name="icon_save" type="reference">@drawable/ic_save_white_24dp</item>
+        <item name="icon_done" type="reference">@drawable/ic_done_black_24dp</item>
+        <item name="icon_group" type="reference">@drawable/ic_group_white_24dp</item>
+        <item name="icon_new" type="reference">@drawable/ic_contacts_white_24dp</item>
+        <item name="icon_quote" type="reference">@drawable/ic_reply_white_24dp</item>
+        <item name="icon_refresh" type="reference">@drawable/ic_refresh_white_24dp</item>
+        <item name="icon_new_attachment" type="reference">@drawable/ic_attach_file_white_24dp</item>
+        <item name="icon_not_secure" type="reference">@drawable/ic_lock_open_white_24dp</item>
+        <item name="ic_make_audio_call" type="reference">@drawable/ic_call_white70_24dp</item>
+        <item name="ic_make_video_call" type="reference">@drawable/ic_videocam_white70_24dp</item>
+        <item name="icon_call" type="reference">@drawable/ic_call_white_24dp</item>
+        <item name="icon_ongoing_call" type="reference">@drawable/ic_phone_in_talk_white_24dp</item>
+        <item name="ic_ongoing_call_hint" type="reference">@drawable/ic_phone_in_talk_white_18dp
+        </item>
+        <item name="icon_remove" type="reference">@drawable/ic_delete_white_24dp</item>
+        <item name="icon_search" type="reference">@drawable/ic_search_white_24dp</item>
+        <item name="icon_help" type="reference">@drawable/ic_help_white_24dp</item>
+        <item name="icon_help_black" type="reference">@drawable/ic_help_white_24dp</item>
+        <item name="icon_goto_chat" type="reference">@drawable/ic_question_answer_white_24dp</item>
+        <item name="icon_secure" type="reference">@drawable/ic_lock_open_white_24dp</item>
+        <item name="icon_settings" type="reference">@drawable/ic_settings_white_24dp</item>
+        <item name="icon_delete" type="reference">@drawable/ic_delete_white_24dp</item>
+        <item name="icon_share" type="reference">@drawable/ic_share_white_24dp</item>
+        <item name="icon_action_share" type="reference">@drawable/ic_share_white_24dp</item>
+        <item name="ic_cloud_download" type="reference">@drawable/ic_cloud_download_white_24dp
+        </item>
+        <item name="icon_scan_qr_code" type="reference">@drawable/ic_qrcode_scan_white_24dp</item>
+        <item name="icon_scroll_down" type="reference">@drawable/ic_scroll_to_end_white</item>
+
+        <item name="ic_bold" type="reference">@drawable/ic_format_bold_white</item>
+        <item name="ic_italic" type="reference">@drawable/ic_format_italic_white</item>
+        <item name="ic_monospace" type="reference">@drawable/ic_format_monospace_white</item>
+        <item name="ic_strikethrough" type="reference">@drawable/ic_format_strikethrough_white</item>
+        <item name="ic_help" type="reference">@drawable/ic_help_white</item>
+        <item name="ic_close" type="reference">@drawable/ic_close_white</item>
+
+        <item name="icon_notifications" type="reference">@drawable/ic_notifications_white_24dp
+        </item>
+        <item name="icon_notifications_off" type="reference">
+            @drawable/ic_notifications_off_white_24dp
+        </item>
+        <item name="icon_notifications_paused" type="reference">
+            @drawable/ic_notifications_paused_white_24dp
+        </item>
+        <item name="icon_notifications_none" type="reference">
+            @drawable/ic_notifications_none_white_24dp
+        </item>
+        <item name="icon_enable_undecided_device" type="reference">
+            @drawable/ic_new_releases_white_24dp
+        </item>
+        <item name="icon_pinned_on_top" type="reference">@drawable/ic_star_white_24dp</item>
+
+        <!-- settings-->
+        <item name="ic_settings_ui" type="reference">@drawable/ic_image_white_24dp</item>
+        <item name="ic_settings_notifications" type="reference">
+            @drawable/ic_notifications_white_24dp
+        </item>
+        <item name="ic_settings_attachments" type="reference">@drawable/ic_attachment_white_24dp
+        </item>
+        <item name="ic_settings_status" type="reference">@drawable/ic_new_releases_white_24dp</item>
+        <item name="ic_settings_security" type="reference">@drawable/ic_security_white_24dp</item>
+        <item name="ic_settings_expert" type="reference">@drawable/ic_settings_white_24dp</item>
+        <item name="ic_settings_about" type="reference">@drawable/ic_help_circle_white_24dp</item>
+    </style>
+
+    <!-- blue theme - black -->
+    <style name="ConversationsTheme.Black" parent="ConversationsTheme.Dark">
+        <item name="colorPrimary">@color/primary_black</item>
+        <item name="colorPrimaryDark">@color/primary_dark_black</item>
+        <item name="color_background_primary">@color/darkblack</item>
+        <item name="color_background_secondary">@color/primary_black</item>
+        <item name="color_background_tertiary">@color/primary_black</item>
+        <item name="color_bubble_light">@color/middleblack</item>
+        <item name="color_bubble_dark">@color/darkblack</item>
+    </style>
+
+    <!-- blue dialog -->
+    <style name="ConversationsTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorAccentLight">@color/accent_light</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled</item>
+        <item name="color_background_primary">@color/grey50</item>
+        <item name="divider">@color/black12</item>
+        <item name="TextSizeTitle">18sp</item>
+        <item name="TextSizeBody2">14sp</item>
+        <item name="TextSizeDisplay2">45sp</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="buttonBarButtonStyle">@style/Conversations.Dialog.Alert.Buttons</item>
+    </style>
+
+    <!-- blue dialog - dark -->
+    <style name="ConversationsTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorAccentLight">@color/accent_light</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled</item>
+        <item name="color_background_primary">@color/grey800</item>
+        <item name="divider">@color/white12</item>
+        <item name="TextSizeBody2">14sp</item>
+        <item name="TextSizeDisplay2">45sp</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="buttonBarButtonStyle">@style/Conversations.Dialog.Alert.Buttons</item>
+    </style>
+
+    <!-- blue dialog - black -->
+    <style name="ConversationsTheme.Black.Dialog" parent="ConversationsTheme.Dark.Dialog">
+        <item name="colorPrimary">@color/primary_black</item>
+        <item name="colorPrimaryDark">@color/primary_black</item>
+        <item name="color_background_primary">@color/darkblack</item>
+    </style>
+
+    <!-- blue dialog medium font -->
+    <style name="ConversationsTheme.Dialog.Medium" parent="ConversationsTheme.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- blue dialog medium font - dark -->
+    <style name="ConversationsTheme.Dark.Dialog.Medium" parent="ConversationsTheme.Dark.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- blue dialog medium font - black -->
+    <style name="ConversationsTheme.Black.Dialog.Medium" parent="ConversationsTheme.Black.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- blue dialog large font -->
+    <style name="ConversationsTheme.Dialog.Large" parent="ConversationsTheme.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeDisplay2">56sp</item>
+    </style>
+
+    <!-- blue dialog large font - dark -->
+    <style name="ConversationsTheme.Dark.Dialog.Large" parent="ConversationsTheme.Dark.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- blue dialog large font - black -->
+    <style name="ConversationsTheme.Black.Dialog.Large" parent="ConversationsTheme.Black.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- blue medium font -->
+    <style name="ConversationsTheme.Medium" parent="ConversationsTheme">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- blue medium font - dark -->
+    <style name="ConversationsTheme.Dark.Medium" parent="ConversationsTheme.Dark">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- blue medium font - black -->
+    <style name="ConversationsTheme.Black.Medium" parent="ConversationsTheme.Black">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- blue large font -->
+    <style name="ConversationsTheme.Large" parent="ConversationsTheme">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- blue large font - dark -->
+    <style name="ConversationsTheme.Dark.Large" parent="ConversationsTheme.Dark">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- blue large font - black -->
+    <style name="ConversationsTheme.Black.Large" parent="ConversationsTheme.Black">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- 2. blabber -->
+    <!-- blabber theme -->
+    <style name="ConversationsTheme.Blabber" parent="ConversationsTheme">
+        <item name="colorPrimary">@color/primary_blabber</item>
+        <item name="colorPrimaryDark">@color/primary_dark_blabber</item>
+        <item name="colorAccent">@color/accent_blabber</item>
+        <item name="colorAccentLight">@color/accent_light_blabber</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled_blabber</item>
+        <item name="colorControlNormal">@color/accent_blabber</item>
+        <item name="colorControlActivated">@color/accent_blabber</item>
+        <item name="color_bubble_light">@color/lightblabber</item>
+        <item name="color_bubble_dark">@color/lightblabber2</item>
+        <item name="color_bubble_date">@color/lightgreen</item>
+        <item name="color_bubble_warning">@color/lightred</item>
+        <item name="chat_bg">@drawable/bg_light_orange</item>
+        <item name="android:actionModeBackground">@color/accent_blabber</item>
+    </style>
+
+    <!-- blabber theme - dark -->
+    <style name="ConversationsTheme.Blabber.Dark" parent="ConversationsTheme.Dark">
+        <item name="colorPrimary">@color/primary_blabber</item>
+        <item name="colorPrimaryDark">@color/primary_dark_blabber</item>
+        <item name="colorAccent">@color/accent_blabber</item>
+        <item name="colorAccentLight">@color/accent_light_blabber</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled_blabber</item>
+        <item name="colorControlNormal">@color/accent_blabber</item>
+        <item name="colorControlActivated">@color/accent_blabber</item>
+        <item name="color_bubble_light">@color/middleblabber</item>
+        <item name="color_bubble_dark">@color/darkblabber</item>
+        <item name="chat_bg">@drawable/bg_dark_orange</item>
+        <item name="android:actionModeBackground">@color/accent_blabber</item>
+    </style>
+
+    <!-- blabber theme - black -->
+    <style name="ConversationsTheme.Blabber.Black" parent="ConversationsTheme.Black">
+        <item name="colorAccent">@color/accent_blabber</item>
+        <item name="colorAccentLight">@color/accent_light_blabber</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled_blabber</item>
+        <item name="colorControlNormal">@color/accent_blabber</item>
+        <item name="colorControlActivated">@color/accent_blabber</item>
+        <item name="android:actionModeBackground">@color/accent_blabber</item>
+    </style>
+
+    <!-- blabber dialog -->
+    <style name="ConversationsTheme.Blabber.Dialog" parent="ConversationsTheme.Dialog">
+        <item name="colorPrimary">@color/primary_blabber</item>
+        <item name="colorPrimaryDark">@color/primary_dark_blabber</item>
+        <item name="colorAccent">@color/accent_blabber</item>
+        <item name="colorAccentLight">@color/accent_light_blabber</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled_blabber</item>
+    </style>
+
+    <!-- blabber dialog - dark -->
+    <style name="ConversationsTheme.Blabber.Dark.Dialog" parent="ConversationsTheme.Dark.Dialog">
+        <item name="colorPrimary">@color/primary_blabber</item>
+        <item name="colorPrimaryDark">@color/primary_dark_blabber</item>
+        <item name="colorAccent">@color/accent_blabber</item>
+        <item name="colorAccentLight">@color/accent_light_blabber</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled_blabber</item>
+    </style>
+
+    <!-- blabber dialog - black -->
+    <style name="ConversationsTheme.Blabber.Black.Dialog" parent="ConversationsTheme.Black.Dialog">
+        <item name="colorAccent">@color/accent_blabber</item>
+        <item name="colorAccentLight">@color/accent_light_blabber</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_disabled_blabber</item>
+    </style>
+
+    <!-- blabber dialog medium font -->
+    <style name="ConversationsTheme.Blabber.Dialog.Medium" parent="ConversationsTheme.Blabber.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- blabber dialog medium font - dark -->
+    <style name="ConversationsTheme.Blabber.Dark.Dialog.Medium" parent="ConversationsTheme.Blabber.Dark.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- blabber dialog medium font - black -->
+    <style name="ConversationsTheme.Blabber.Black.Dialog.Medium" parent="ConversationsTheme.Blabber.Black.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- blabber dialog large font -->
+    <style name="ConversationsTheme.Blabber.Dialog.Large" parent="ConversationsTheme.Blabber.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeDisplay2">56sp</item>
+    </style>
+
+    <!-- blabber dialog large font - dark -->
+    <style name="ConversationsTheme.Blabber.Dark.Dialog.Large" parent="ConversationsTheme.Blabber.Dark.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- blabber dialog large font - black -->
+    <style name="ConversationsTheme.Blabber.Black.Dialog.Large" parent="ConversationsTheme.Blabber.Black.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- blabber medium font -->
+    <style name="ConversationsTheme.Blabber.Medium" parent="ConversationsTheme.Blabber">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- blabber medium font - dark -->
+    <style name="ConversationsTheme.Blabber.Dark.Medium" parent="ConversationsTheme.Blabber.Dark">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- blabber medium font - black -->
+    <style name="ConversationsTheme.Blabber.Black.Medium" parent="ConversationsTheme.Blabber.Black">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- blabber large font -->
+    <style name="ConversationsTheme.Blabber.Large" parent="ConversationsTheme.Blabber">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- blabber large font - dark -->
+    <style name="ConversationsTheme.Blabber.Dark.Large" parent="ConversationsTheme.Blabber.Dark">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- blabber large font - black -->
+    <style name="ConversationsTheme.Blabber.Black.Large" parent="ConversationsTheme.Blabber.Black">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- 3. orange -->
+    <!-- orange theme -->
+    <style name="ConversationsTheme.Orange" parent="ConversationsTheme">
+        <item name="colorPrimary">@color/primary_orange</item>
+        <item name="colorPrimaryDark">@color/primary_dark_orange</item>
+        <item name="colorAccent">@color/accent_orange</item>
+        <item name="colorAccentLight">@color/accent_light_orange</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_orange_disabled</item>
+        <item name="colorControlNormal">@color/accent_orange</item>
+        <item name="colorControlActivated">@color/accent_orange</item>
+        <item name="color_bubble_light">@color/lightorange</item>
+        <item name="color_bubble_dark">@color/lightorange2</item>
+        <item name="color_bubble_date">@color/lightgreen</item>
+        <item name="color_bubble_warning">@color/lightred</item>
+        <item name="chat_bg">@drawable/bg_light_orange</item>
+        <item name="android:actionModeBackground">@color/accent_orange</item>
+    </style>
+
+    <!-- orange theme - dark -->
+    <style name="ConversationsTheme.Orange.Dark" parent="ConversationsTheme.Dark">
+        <item name="colorPrimary">@color/primary_orange_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_orange_dark</item>
+        <item name="colorAccent">@color/accent_orange</item>
+        <item name="colorAccentLight">@color/accent_light_orange</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_orange_disabled</item>
+        <item name="colorControlNormal">@color/accent_orange</item>
+        <item name="colorControlActivated">@color/accent_orange</item>
+        <item name="color_bubble_light">@color/middleorange</item>
+        <item name="color_bubble_dark">@color/darkorange</item>
+        <item name="chat_bg">@drawable/bg_dark_orange</item>
+        <item name="android:actionModeBackground">@color/accent_orange</item>
+    </style>
+
+    <!-- orange theme - black -->
+    <style name="ConversationsTheme.Orange.Black" parent="ConversationsTheme.Black">
+        <item name="colorAccent">@color/accent_orange</item>
+        <item name="colorAccentLight">@color/accent_light_orange</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_orange_disabled</item>
+        <item name="colorControlNormal">@color/accent_orange</item>
+        <item name="colorControlActivated">@color/accent_orange</item>
+        <item name="android:actionModeBackground">@color/accent_orange</item>
+    </style>
+
+    <!-- orange dialog -->
+    <style name="ConversationsTheme.Orange.Dialog" parent="ConversationsTheme.Dialog">
+        <item name="colorPrimary">@color/primary_orange</item>
+        <item name="colorPrimaryDark">@color/primary_dark_orange</item>
+        <item name="colorAccent">@color/accent_orange</item>
+        <item name="colorAccentLight">@color/accent_light_orange</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_orange_disabled</item>
+    </style>
+
+    <!-- orange dialog - dark -->
+    <style name="ConversationsTheme.Orange.Dark.Dialog" parent="ConversationsTheme.Dark.Dialog">
+        <item name="colorPrimary">@color/primary_orange_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_orange_dark</item>
+        <item name="colorAccent">@color/accent_orange</item>
+        <item name="colorAccentLight">@color/accent_light_orange</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_orange_disabled</item>
+    </style>
+
+    <!-- orange dialog - black -->
+    <style name="ConversationsTheme.Orange.Black.Dialog" parent="ConversationsTheme.Black.Dialog">
+        <item name="colorAccent">@color/accent_orange</item>
+        <item name="colorAccentLight">@color/accent_light_orange</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_orange_disabled</item>
+    </style>
+
+    <!-- orange dialog medium font -->
+    <style name="ConversationsTheme.Orange.Dialog.Medium" parent="ConversationsTheme.Orange.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- orange dialog medium font - dark -->
+    <style name="ConversationsTheme.Orange.Dark.Dialog.Medium" parent="ConversationsTheme.Orange.Dark.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- orange dialog medium font - black -->
+    <style name="ConversationsTheme.Orange.Black.Dialog.Medium" parent="ConversationsTheme.Orange.Black.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- orange dialog large font -->
+    <style name="ConversationsTheme.Orange.Dialog.Large" parent="ConversationsTheme.Orange.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeDisplay2">56sp</item>
+    </style>
+
+    <!-- orange dialog large font - dark -->
+    <style name="ConversationsTheme.Orange.Dark.Dialog.Large" parent="ConversationsTheme.Orange.Dark.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- orange dialog large font - black -->
+    <style name="ConversationsTheme.Orange.Black.Dialog.Large" parent="ConversationsTheme.Orange.Black.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- orange medium font -->
+    <style name="ConversationsTheme.Orange.Medium" parent="ConversationsTheme.Orange">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- orange medium font - dark -->
+    <style name="ConversationsTheme.Orange.Dark.Medium" parent="ConversationsTheme.Orange.Dark">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- orange medium font - black -->
+    <style name="ConversationsTheme.Orange.Black.Medium" parent="ConversationsTheme.Orange.Black">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- orange large font -->
+    <style name="ConversationsTheme.Orange.Large" parent="ConversationsTheme.Orange">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- orange large font - dark -->
+    <style name="ConversationsTheme.Orange.Dark.Large" parent="ConversationsTheme.Orange.Dark">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- orange large font - black -->
+    <style name="ConversationsTheme.Orange.Black.Large" parent="ConversationsTheme.Orange.Black">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- 4. grey -->
+    <!-- grey theme -->
+    <style name="ConversationsTheme.Grey" parent="ConversationsTheme">
+        <item name="colorPrimary">@color/primary_grey</item>
+        <item name="colorPrimaryDark">@color/primary_dark_grey</item>
+        <item name="colorAccent">@color/accent_grey</item>
+        <item name="colorAccentLight">@color/accent_light_grey</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_grey_disabled</item>
+        <item name="colorControlNormal">@color/accent_grey</item>
+        <item name="colorControlActivated">@color/accent_grey</item>
+        <item name="color_bubble_light">@color/lightgrey</item>
+        <item name="color_bubble_dark">@color/lightgrey2</item>
+        <item name="chat_bg">@drawable/bg_light_grey</item>
+        <item name="android:actionModeBackground">@color/accent_grey</item>
+    </style>
+
+    <!-- grey theme - dark -->
+    <style name="ConversationsTheme.Grey.Dark" parent="ConversationsTheme.Dark">
+        <item name="colorPrimary">@color/primary_grey_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_grey_dark</item>
+        <item name="colorAccent">@color/accent_grey</item>
+        <item name="colorAccentLight">@color/accent_light_grey</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_grey_disabled</item>
+        <item name="colorControlNormal">@color/accent_grey</item>
+        <item name="colorControlActivated">@color/accent_grey</item>
+        <item name="color_bubble_light">@color/middlegrey</item>
+        <item name="color_bubble_dark">@color/darkgrey</item>
+        <item name="chat_bg">@drawable/bg_dark_grey</item>
+        <item name="android:actionModeBackground">@color/accent_grey</item>
+    </style>
+
+    <!-- grey theme - black -->
+    <style name="ConversationsTheme.Grey.Black" parent="ConversationsTheme.Black">
+        <item name="colorAccent">@color/accent_grey</item>
+        <item name="colorAccentLight">@color/accent_light_grey</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_grey_disabled</item>
+        <item name="colorControlNormal">@color/accent_grey</item>
+        <item name="colorControlActivated">@color/accent_grey</item>
+        <item name="android:actionModeBackground">@color/accent_grey</item>
+    </style>
+
+    <!-- grey dialog -->
+    <style name="ConversationsTheme.Grey.Dialog" parent="ConversationsTheme.Dialog">
+        <item name="colorPrimary">@color/primary_grey</item>
+        <item name="colorPrimaryDark">@color/primary_dark_grey</item>
+        <item name="colorAccent">@color/accent_grey</item>
+        <item name="colorAccentLight">@color/accent_light_grey</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_grey_disabled</item>
+    </style>
+
+    <!-- grey dialog - dark -->
+    <style name="ConversationsTheme.Grey.Dark.Dialog" parent="ConversationsTheme.Dark.Dialog">
+        <item name="colorPrimary">@color/primary_grey_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_grey_dark</item>
+        <item name="colorAccent">@color/accent_grey</item>
+        <item name="colorAccentLight">@color/accent_light_grey</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_grey_disabled</item>
+    </style>
+
+    <!-- grey dialog - black -->
+    <style name="ConversationsTheme.Grey.Black.Dialog" parent="ConversationsTheme.Black.Dialog">
+        <item name="colorAccent">@color/accent_grey</item>
+        <item name="colorAccentLight">@color/accent_light_grey</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_grey_disabled</item>
+    </style>
+
+    <!-- grey dialog medium font -->
+    <style name="ConversationsTheme.Grey.Dialog.Medium" parent="ConversationsTheme.Grey.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- grey dialog medium font - dark -->
+    <style name="ConversationsTheme.Grey.Dark.Dialog.Medium" parent="ConversationsTheme.Grey.Dark.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- grey dialog medium font - black -->
+    <style name="ConversationsTheme.Grey.Black.Dialog.Medium" parent="ConversationsTheme.Grey.Black.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- grey dialog large font -->
+    <style name="ConversationsTheme.Grey.Dialog.Large" parent="ConversationsTheme.Grey.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeDisplay2">56sp</item>
+    </style>
+
+    <!-- grey dialog large font - dark -->
+    <style name="ConversationsTheme.Grey.Dark.Dialog.Large" parent="ConversationsTheme.Grey.Dark.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- grey dialog large font - black -->
+    <style name="ConversationsTheme.Grey.Black.Dialog.Large" parent="ConversationsTheme.Grey.Black.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- grey medium font -->
+    <style name="ConversationsTheme.Grey.Medium" parent="ConversationsTheme.Grey">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- grey medium font - dark -->
+    <style name="ConversationsTheme.Grey.Dark.Medium" parent="ConversationsTheme.Grey.Dark">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- grey medium font - black -->
+    <style name="ConversationsTheme.Grey.Black.Medium" parent="ConversationsTheme.Grey.Black">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- grey large font -->
+    <style name="ConversationsTheme.Grey.Large" parent="ConversationsTheme.Grey">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- grey large font - dark -->
+    <style name="ConversationsTheme.Grey.Dark.Large" parent="ConversationsTheme.Grey.Dark">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- grey large font - black -->
+    <style name="ConversationsTheme.Grey.Black.Large" parent="ConversationsTheme.Grey.Black">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- 5. pink -->
+    <!-- pink theme -->
+    <style name="ConversationsTheme.Pink" parent="ConversationsTheme">
+        <item name="colorPrimary">@color/primary_pink</item>
+        <item name="colorPrimaryDark">@color/primary_dark_pink</item>
+        <item name="colorAccent">@color/accent_pink</item>
+        <item name="colorAccentLight">@color/accent_light_pink</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_pink_disabled</item>
+        <item name="colorControlNormal">@color/accent_pink</item>
+        <item name="colorControlActivated">@color/accent_pink</item>
+        <item name="color_bubble_light">@color/lightpink</item>
+        <item name="color_bubble_dark">@color/lightpink2</item>
+        <item name="chat_bg">@drawable/bg_light_pink</item>
+        <item name="android:actionModeBackground">@color/accent_pink</item>
+    </style>
+
+    <!-- pink theme - dark -->
+    <style name="ConversationsTheme.Pink.Dark" parent="ConversationsTheme.Dark">
+        <item name="colorPrimary">@color/primary_pink_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_pink_dark</item>
+        <item name="colorAccent">@color/accent_pink</item>
+        <item name="colorAccentLight">@color/accent_light_pink</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_pink_disabled</item>
+        <item name="colorControlNormal">@color/accent_pink</item>
+        <item name="colorControlActivated">@color/accent_pink</item>
+        <item name="color_bubble_light">@color/middlepink</item>
+        <item name="color_bubble_dark">@color/darkpink</item>
+        <item name="chat_bg">@drawable/bg_dark_pink</item>
+        <item name="android:actionModeBackground">@color/accent_pink</item>
+    </style>
+
+    <!-- pink theme - black -->
+    <style name="ConversationsTheme.Pink.Black" parent="ConversationsTheme.Black">
+        <item name="colorAccent">@color/accent_pink</item>
+        <item name="colorAccentLight">@color/accent_light_pink</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_pink_disabled</item>
+        <item name="colorControlNormal">@color/accent_pink</item>
+        <item name="colorControlActivated">@color/accent_pink</item>
+        <item name="android:actionModeBackground">@color/accent_pink</item>
+    </style>
+
+    <!-- pink dialog -->
+    <style name="ConversationsTheme.Pink.Dialog" parent="ConversationsTheme.Dialog">
+        <item name="colorPrimary">@color/primary_pink</item>
+        <item name="colorPrimaryDark">@color/primary_dark_pink</item>
+        <item name="colorAccent">@color/accent_pink</item>
+        <item name="colorAccentLight">@color/accent_light_pink</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_pink_disabled</item>
+    </style>
+
+    <!-- pink dialog - dark -->
+    <style name="ConversationsTheme.Pink.Dark.Dialog" parent="ConversationsTheme.Dark.Dialog">
+        <item name="colorPrimary">@color/primary_pink_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_pink_dark</item>
+        <item name="colorAccent">@color/accent_pink</item>
+        <item name="colorAccentLight">@color/accent_light_pink</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_pink_disabled</item>
+    </style>
+
+    <!-- pink dialog - black -->
+    <style name="ConversationsTheme.Pink.Black.Dialog" parent="ConversationsTheme.Black.Dialog">
+        <item name="colorAccent">@color/accent_pink</item>
+        <item name="colorAccentLight">@color/accent_light_pink</item>
+        <item name="colorAccentLightDisabled">@color/accent_light_pink_disabled</item>
+    </style>
+
+    <!-- pink dialog medium font -->
+    <style name="ConversationsTheme.Pink.Dialog.Medium" parent="ConversationsTheme.Pink.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- pink dialog medium font - dark -->
+    <style name="ConversationsTheme.Pink.Dark.Dialog.Medium" parent="ConversationsTheme.Pink.Dark.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- pink dialog medium font - black -->
+    <style name="ConversationsTheme.Pink.Black.Dialog.Medium" parent="ConversationsTheme.Pink.Black.Dialog">
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeDisplay2">51sp</item>
+    </style>
+
+    <!-- pink dialog large font -->
+    <style name="ConversationsTheme.Pink.Dialog.Large" parent="ConversationsTheme.Pink.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeDisplay2">56sp</item>
+    </style>
+
+    <!-- pink dialog large font - dark -->
+    <style name="ConversationsTheme.Pink.Dark.Dialog.Large" parent="ConversationsTheme.Pink.Dark.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- pink dialog large font - black -->
+    <style name="ConversationsTheme.Pink.Black.Dialog.Large" parent="ConversationsTheme.Pink.Black.Dialog">
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeTitle">56sp</item>
+    </style>
+
+    <!-- pink medium font -->
+    <style name="ConversationsTheme.Pink.Medium" parent="ConversationsTheme.Pink">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- pink medium font - dark -->
+    <style name="ConversationsTheme.Pink.Dark.Medium" parent="ConversationsTheme.Pink.Dark">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- pink medium font - black -->
+    <style name="ConversationsTheme.Pink.Black.Medium" parent="ConversationsTheme.Pink.Black">
+        <item name="TextSizeCaption">14sp</item>
+        <item name="TextSizeBody1">16sp</item>
+        <item name="TextSizeBody2">16sp</item>
+        <item name="TextSizeSubhead">18sp</item>
+        <item name="TextSizeTitle">22sp</item>
+        <item name="TextSizeInput">18sp</item>
+        <item name="TextSeparation">6sp</item>
+        <item name="IconSize">20sp</item>
+        <item name="TextSizeInfo">14sp</item>
+        <item name="TextSizeBody">16sp</item>
+        <item name="TextSizeHeadline">20sp</item>
+    </style>
+
+    <!-- pink large font -->
+    <style name="ConversationsTheme.Pink.Large" parent="ConversationsTheme.Pink">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- pink large font - dark -->
+    <style name="ConversationsTheme.Pink.Dark.Large" parent="ConversationsTheme.Pink.Dark">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+    <!-- pink large font - black -->
+    <style name="ConversationsTheme.Pink.Black.Large" parent="ConversationsTheme.Pink.Black">
+        <item name="TextSizeCaption">16sp</item>
+        <item name="TextSizeBody1">18sp</item>
+        <item name="TextSizeBody2">18sp</item>
+        <item name="TextSizeSubhead">20sp</item>
+        <item name="TextSizeTitle">24sp</item>
+        <item name="TextSizeInput">20sp</item>
+        <item name="TextSeparation">7sp</item>
+        <item name="IconSize">22sp</item>
+        <item name="TextSizeInfo">16sp</item>
+        <item name="TextSizeBody">18sp</item>
+        <item name="TextSizeHeadline">22sp</item>
+    </style>
+
+</resources>
