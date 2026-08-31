@@ -305,14 +305,16 @@
                                 app:riv_corner_radius="@dimen/rounded_image_border" />
                         </RelativeLayout>
 
-                        <CheckBox
-                            android:id="@+id/account_register_new"
-                            style="@style/Widget.Conversations.CheckBox"
-                            android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/account_registration_explanation"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/jid_password_box"
                             android:layout_marginTop="8dp"
-                            android:text="@string/register_account" />
+                            android:text="@string/account_registration_explanation"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="?android:textColorSecondary"
+                            android:visibility="gone" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 

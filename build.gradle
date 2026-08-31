@@ -116,8 +116,8 @@ android {
         minSdkVersion 23
         targetSdkVersion 32
 
-        versionCode 349
-        versionName "3.1.4"
+        versionCode 350
+        versionName "3.1.5"
         //resConfigs "en"
 
         archivesBaseName = "Blabber-$versionName"

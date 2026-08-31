@@ -170,9 +170,11 @@
     <string name="attach_record_voice">Record voice</string>
     <string name="account_settings_jabber_id">Jabber-ID</string>
     <string name="account_settings_example_jabber_id" translatable="false">username@domain.com</string>
+    <string name="account_settings_example_xmpp_de" translatable="false">username@xmpp.de</string>
     <string name="password">Password</string>
     <string name="invalid_jid">This is not a valid Jabber-ID</string>
     <string name="registration_only_on_xmpp_de">New accounts can only be created on xmpp.de. Existing accounts on other servers can still be used.</string>
+    <string name="account_registration_explanation">This form creates a new user on the xmpp.de server.</string>
     <string name="error_out_of_memory">Out of memory. Image is too large</string>
     <string name="add_phone_book_text">Do you want to add %s to your address book?</string>
     <string name="server_info_show_more">Server info</string>

@@ -170,6 +170,7 @@
     <string name="password">Kennwort</string>
     <string name="invalid_jid">Ungültige Jabber-ID</string>
     <string name="registration_only_on_xmpp_de">Neue Konten können nur auf xmpp.de erstellt werden. Bestehende Konten anderer Server können weiterhin genutzt werden.</string>
+    <string name="account_registration_explanation">Mit dieser Maske wird ein neuer Benutzer auf dem Server xmpp.de erstellt.</string>
     <string name="error_out_of_memory">Zu wenig Speicher vorhanden. Das Bild ist zu groß</string>
     <string name="add_phone_book_text">%s zum Telefonbuch hinzufügen?</string>
     <string name="server_info_show_more">Server-Info</string>

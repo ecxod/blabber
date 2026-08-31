@@ -1,6 +1,7 @@
 ### Changelog
 
 #### Version 3.1.5
+* restrict new profile registration to xmpp.de, complete the domain after typing @, and clarify that the form creates a server-side user
 * add quote to text formatting bar (blabber.im)
 * render quotes in message preview (blabber.im)
 * show dialog, if manual update check detects an update (blabber.im)
