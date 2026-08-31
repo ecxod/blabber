@@ -435,6 +435,7 @@
     <string name="download_failed_could_not_write_file">Download fehlgeschlagen: Datei kann nicht gespeichert werden</string>
     <string name="action_check_update">Auf Updates prüfen</string>
     <string name="title_activity_updater">Update-Dienst</string>
+    <string name="update_available_title">Blabber-Update verfügbar</string>
     <string name="update_available">Version %1$s ist verfügbar.\n\nDateigröße: %2$s\n\nJetzt auf Version %1$s aktualisieren?</string>
     <string name="remind_later">später</string>
     <string name="update">aktualisieren</string>

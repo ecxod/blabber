@@ -222,7 +222,7 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
             if (xmppConnectionService.getAccounts().size() != 0) {
                 if (xmppConnectionService.hasInternetConnection()) {
                     if (xmppConnectionService.isWIFI() || (xmppConnectionService.isMobile() && !xmppConnectionService.isMobileRoaming())) {
-                        AppUpdate(xmppConnectionService.installedFrom());
+                        checkForAutomaticUpdate();
                     }
                 }
             }
@@ -1044,18 +1044,18 @@ public class ConversationsActivity extends XmppActivity implements OnConversatio
         runOnUiThread(() -> ToastCompat.makeText(this, resId, ToastCompat.LENGTH_SHORT).show());
     }
 
-    protected void AppUpdate(String Store) {
-        String PREFS_NAME = "UpdateTimeStamp";
-        SharedPreferences UpdateTimeStamp = getApplicationContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        long lastUpdateTime = UpdateTimeStamp.getLong("lastUpdateTime", 0);
+    protected void checkForAutomaticUpdate() {
+        final String preferencesName = "UpdateTimeStamp";
+        final SharedPreferences updateTimeStamp = getApplicationContext().getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
+        long lastUpdateTime = updateTimeStamp.getLong("lastUpdateTime", 0);
         Log.d(Config.LOGTAG, "AppUpdater: LastUpdateTime: " + lastUpdateTime);
         if ((lastUpdateTime + (Config.UPDATE_CHECK_TIMER * 1000)) < System.currentTimeMillis()) {
             lastUpdateTime = System.currentTimeMillis();
-            SharedPreferences.Editor editor = UpdateTimeStamp.edit();
+            final SharedPreferences.Editor editor = updateTimeStamp.edit();
             editor.putLong("lastUpdateTime", lastUpdateTime);
             editor.apply();
             Log.d(Config.LOGTAG, "AppUpdater: CurrentTime: " + lastUpdateTime);
-            openInstallFromUnknownSourcesDialogIfNeeded(false);
+            checkForUpdates(false);
         } else {
             Log.d(Config.LOGTAG, "AppUpdater stopped");
         }

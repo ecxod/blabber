@@ -1,13 +1,19 @@
 package eu.siacs.conversations.services;
 
 import static eu.siacs.conversations.http.HttpConnectionManager.getProxy;
+
+import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.AsyncTask;
 import android.text.format.Formatter;
 import android.util.Log;
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -109,17 +115,41 @@ public class UpdateService extends AsyncTask<String, Object, UpdateService.Wrapp
             }
             return;
         }
-        if (result.interactive) {
-            openReleasePage(result.releaseUrl);
+        if (canShowUpdateDialog()) {
+            showUpdateDialog(result);
         } else {
             showNotification(result);
         }
     }
 
+    private boolean canShowUpdateDialog() {
+        if (!(context instanceof Activity)) {
+            return false;
+        }
+        final Activity activity = (Activity) context;
+        return !activity.isFinishing()
+                && (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !activity.isDestroyed())
+                && activity.hasWindowFocus();
+    }
+
+    private void showUpdateDialog(final Wrapper result) {
+        final String fileSize = formatFileSize(result.fileSize);
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.update_available_title)
+                .setMessage(context.getString(R.string.update_available, result.version, fileSize))
+                .setNegativeButton(R.string.remind_later, null)
+                .setPositiveButton(R.string.update, (dialog, which) -> openReleasePage(result.releaseUrl))
+                .show();
+    }
+
     private void openReleasePage(final String releaseUrl) {
         final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(releaseUrl));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
+        try {
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            ToastCompat.makeText(context, R.string.failed, ToastCompat.LENGTH_LONG).show();
+        }
     }
 
     private void showNotification(final Wrapper result) {
@@ -130,11 +160,15 @@ public class UpdateService extends AsyncTask<String, Object, UpdateService.Wrapp
                 0,
                 intent,
                 PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
-        final String fileSize = result.fileSize > 0
-                ? Formatter.formatShortFileSize(context, result.fileSize)
-                : context.getString(R.string.unknown_file_size);
+        final String fileSize = formatFileSize(result.fileSize);
         notificationService.AppUpdateServiceNotification(
                 notificationService.AppUpdateNotification(pendingIntent, result.version, fileSize));
+    }
+
+    private String formatFileSize(final long fileSize) {
+        return fileSize > 0
+                ? Formatter.formatShortFileSize(context, fileSize)
+                : context.getString(R.string.unknown_file_size);
     }
 
     private static String validateReleaseUrl(final String value) throws Exception {
@@ -168,7 +202,7 @@ public class UpdateService extends AsyncTask<String, Object, UpdateService.Wrapp
                 : version;
     }
 
-    private static int compareVersions(final String remoteVersion, final String installedVersion) {
+    static int compareVersions(final String remoteVersion, final String installedVersion) {
         final String[] remote = normalizeVersion(remoteVersion).split("[.+-]");
         final String[] installed = normalizeVersion(installedVersion).split("[.+-]");
         final int length = Math.max(remote.length, installed.length);

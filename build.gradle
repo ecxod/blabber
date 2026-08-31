@@ -96,6 +96,7 @@ dependencies {
     implementation 'com.github.AppIntro:AppIntro:6.2.0'
     implementation 'androidx.browser:browser:1.4.0'
     implementation 'io.sentry:sentry-android-core:8.38.0'
+    testImplementation 'junit:junit:4.13.2'
     implementation 'com.otaliastudios:transcoder:0.9.1' // 0.10.4 seems to be buggy
     implementation project(':libs:AXML')
     //implementation 'ch.threema:webrtc-android:100.0.0' // has missing codecs

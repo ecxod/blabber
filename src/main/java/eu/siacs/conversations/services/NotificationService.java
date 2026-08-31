@@ -1795,11 +1795,14 @@ public class NotificationService {
 
     Notification AppUpdateNotification(PendingIntent intent, String version, String filesize) {
         Notification.Builder mBuilder = new Notification.Builder(mXmppConnectionService);
+        final String updateText = mXmppConnectionService.getString(R.string.update_available, version, filesize);
         mBuilder.setContentTitle(mXmppConnectionService.getString(R.string.app_name));
-        mBuilder.setContentText(String.format(mXmppConnectionService.getString(R.string.update_available), version, filesize));
+        mBuilder.setContentText(updateText);
+        mBuilder.setStyle(new Notification.BigTextStyle().bigText(updateText));
         mBuilder.setSmallIcon(R.drawable.ic_update_notification);
         mBuilder.setContentIntent(intent);
-        mBuilder.setOngoing(true);
+        mBuilder.setAutoCancel(true);
+        mBuilder.setOngoing(false);
         if (Compatibility.runsTwentySix()) {
             mBuilder.setChannelId(UPDATE_CHANNEL_ID);
         }

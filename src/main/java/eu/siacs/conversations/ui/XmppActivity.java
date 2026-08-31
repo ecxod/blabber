@@ -421,7 +421,7 @@ public abstract class XmppActivity extends ActionBarActivity {
                 break;
             case R.id.action_check_updates:
                 if (xmppConnectionService.hasInternetConnection()) {
-                    openInstallFromUnknownSourcesDialogIfNeeded(true);
+                    checkForUpdates(true);
                 } else {
                     ToastCompat.makeText(this, R.string.account_status_no_internet, ToastCompat.LENGTH_LONG).show();
                 }
@@ -1389,7 +1389,7 @@ public abstract class XmppActivity extends ActionBarActivity {
         return null;
     }
 
-    protected void openInstallFromUnknownSourcesDialogIfNeeded(boolean interactive) {
+    protected void checkForUpdates(final boolean interactive) {
         final UpdateService task = new UpdateService(this, xmppConnectionService);
         task.executeOnExecutor(UpdateService.THREAD_POOL_EXECUTOR, Boolean.toString(interactive));
     }

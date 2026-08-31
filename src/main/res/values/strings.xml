@@ -440,6 +440,7 @@
     <string name="download_failed_could_not_write_file">Download failed: Could not write file</string>
     <string name="action_check_update">Check for Updates</string>
     <string name="title_activity_updater">Update service</string>
+    <string name="update_available_title">Blabber update available</string>
     <string name="update_available">Version %1$s is available.\n\nFilesize: %2$s\n\nUpdate to version %1$s now?</string>
     <string name="remind_later">later</string>
     <string name="update">update</string>
